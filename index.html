@@ -4123,8 +4123,8 @@ async function submitAuth() {
       const { data, error } = await sb.auth.signUp({ email, password });
       if (error) throw error;
       if (data.session) {
-        // Create profile row for new user
-        const { error: profErr } = await sb.from('profiles').upsert({ id: data.session.user.id, name: email.split('@')[0] }, { onConflict: 'id' });
+        // Create empty profile row for new user (onboarding will fill it)
+        const { error: profErr } = await sb.from('profiles').upsert({ id: data.session.user.id, name: '' }, { onConflict: 'id' });
         if (profErr) console.error('Profile insert error:', profErr);
         await handleAuthenticated(data.session);
       } else {
