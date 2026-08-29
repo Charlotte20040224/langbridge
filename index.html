@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>語橋 SaPhaan</title>
+<title>LangBridge 語緣</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap">
 <style>
 :root {
@@ -101,8 +101,8 @@ input, select, textarea { font-family: inherit; color: var(--text); }
   border-bottom: 1px solid var(--border);
 }
 .logo { font-family: 'Nunito', sans-serif; font-size: 22px; letter-spacing: -0.02em; }
-.logo .zh { color: var(--gold); }
-.logo .th { color: var(--teal); }
+.logo .en { color: var(--gold); }
+.logo .zh { color: var(--teal); }
 .icon-btn {
   width: 36px; height: 36px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -320,8 +320,8 @@ input, select, textarea { font-family: inherit; color: var(--text); }
   justify-content: center; padding: 40px 24px;
 }
 .brand { font-family: 'Nunito', sans-serif; font-size: 38px; text-align: center; margin-bottom: 6px; }
-.brand .zh { color: var(--gold); }
-.brand .th { color: var(--teal); }
+.brand .en { color: var(--gold); }
+.brand .zh { color: var(--teal); }
 .tagline { text-align: center; color: var(--text-secondary); font-size: 15px; margin-bottom: 40px; line-height: 1.5; }
 .step-indicator { display: flex; justify-content: center; gap: 6px; margin-bottom: 30px; }
 .step-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all 0.2s; }
@@ -581,7 +581,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
       <div class="lp-title" data-i18n="choose_language">Choose your language</div>
       <select class="lang-select" id="langPickerAuth" onchange="setLang(this.value)"></select>
     </div>
-    <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+    <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
     <p class="tagline" data-i18n="tagline"></p>
     <h3 id="authTitle" style="text-align:center;font-family:'Instrument Serif',serif;font-size:22px;margin-bottom:16px" data-i18n="login_title"></h3>
     <div class="form-group">
@@ -606,7 +606,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
         <select class="lang-select" id="langPickerOnboarding" onchange="setLang(this.value)"></select>
       </div>
       <div class="step-indicator"><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
-      <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <p class="tagline" data-i18n="tagline"></p>
       <div class="form-group">
         <label data-i18n="name_label"></label>
@@ -640,7 +640,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
     <!-- Step 2: Languages -->
     <div id="step2" style="display:none">
       <div class="step-indicator"><div class="step-dot"></div><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div></div>
-      <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <p class="tagline" data-i18n="s2_tagline"></p>
       <div class="form-group">
         <label data-i18n="s2_speak_label"></label>
@@ -698,7 +698,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
     <!-- Step 3: Purpose & Preferences -->
     <div id="step3" style="display:none">
       <div class="step-indicator"><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div></div>
-      <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <p class="tagline" data-i18n="s3_tagline"></p>
       <div class="form-group">
         <label data-i18n="s3_purpose_label"></label>
@@ -734,7 +734,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
     <!-- Step 4: Bio -->
     <div id="step4" style="display:none">
       <div class="step-indicator"><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot active"></div><div class="step-dot"></div></div>
-      <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <p class="tagline" data-i18n="s4_tagline"></p>
       <div class="form-group" style="text-align:center">
         <label data-i18n="s4_photo_label"></label>
@@ -782,7 +782,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
     <!-- Step 5: Contact -->
     <div id="step5" style="display:none">
       <div class="step-indicator"><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot"></div><div class="step-dot active"></div></div>
-      <div class="brand"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="brand"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <p class="tagline" data-i18n="s5_tagline"></p>
       <div class="form-group">
         <label data-i18n="line_label"></label>
@@ -799,7 +799,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
   <!-- Main App -->
   <div id="mainApp" style="display:none">
     <div class="topbar">
-      <div class="logo"><span class="zh">語橋</span> <span class="th">สะพาน</span></div>
+      <div class="logo"><span class="en">LangBridge</span> <span class="zh">語緣</span></div>
       <button class="icon-btn" onclick="showPage('profile')">👤</button>
     </div>
 
@@ -907,7 +907,7 @@ input, select, textarea { font-family: inherit; color: var(--text); }
         <button class="btn-primary" onclick="saveProfile()" data-i18n="save_changes"></button>
         <button class="btn-secondary" onclick="showPage('discover')" data-i18n="back_discover"></button>
         <div class="divider"></div>
-        <a href="mailto:thaivocabapp@gmail.com?subject=語橋 SaPhaan 意見回饋&body=" class="feedback-link" data-i18n="feedback_btn">📬 意見回饋</a>
+        <a href="mailto:thaivocabapp@gmail.com?subject=LangBridge 語緣 意見回饋&body=" class="feedback-link" data-i18n="feedback_btn">📬 意見回饋</a>
         <button class="btn-secondary" style="color:var(--coral)" onclick="logout()" data-i18n="logout_btn"></button>
       </div>
     </div>
@@ -980,7 +980,7 @@ zh: {
   auth_error: '發生錯誤，請再試一次',
   logout_btn: '登出',
   choose_language: '選擇語言 / Choose language',
-  tagline: '語言交換，從這裡開始<br>แลกเปลี่ยนภาษา เริ่มต้นที่นี่',
+  tagline: '大家有緣來作伴<br>แลกเปลี่ยนภาษา เริ่มต้นที่นี่',
   name_label: '名字 Name', name_ph: '例如 Charlotte',
   age_label: '年齡 Age', age_ph: '例如 22',
   location_label: '所在地 Location', location_ph: '搜尋城市 Search city...',
@@ -1057,6 +1057,8 @@ zh: {
   their_contact_share: '📎 我也分享我的聯絡方式：\n',
   toast_they_shared: '🎉 {name} 也分享了聯絡方式！',
   toast_match_before_msg: '未配對前無法交換聯絡方式',
+  toast_prematch_limit: '配對前最多傳送 3 則訊息，按喜歡配對後可繼續聊天',
+  prematch_ph: '配對前還可傳送 {n} 則訊息',
   toast_msg_limit: '配對前最多傳 {n} 則訊息，按喜歡等對方回應吧！',
   toast_boost_active: 'Boost 已經在進行中！',
   boost_active_label: '⚡ Boost 進行中 · {t}',
@@ -1086,7 +1088,7 @@ zh_CN: {
   auth_error: '发生错误，请再试一次',
   logout_btn: '登出',
   choose_language: '选择语言 / Choose language',
-  tagline: '语言交换，从这里开始<br>แลกเปลี่ยนภาษา เริ่มต้นที่นี่',
+  tagline: '大家有缘来作伴<br>แลกเปลี่ยนภาษา เริ่มต้นที่นี่',
   name_label: '名字 Name', name_ph: '例如 Charlotte',
   age_label: '年龄 Age', age_ph: '例如 22',
   location_label: '所在地 Location', location_ph: '搜索城市 Search city...',
@@ -1163,6 +1165,8 @@ zh_CN: {
   their_contact_share: '📎 我也分享我的联系方式：\n',
   toast_they_shared: '🎉 {name} 也分享了联系方式！',
   toast_match_before_msg: '未配对前无法交换联系方式',
+  toast_prematch_limit: '配对前最多发送 3 条消息，点赞配对后可继续聊天',
+  prematch_ph: '配对前还可发送 {n} 条消息',
   toast_msg_limit: '配对前最多发 {n} 条消息，按喜欢等对方回应吧！',
   toast_boost_active: 'Boost 已经在进行中！',
   boost_active_label: '⚡ Boost 进行中 · {t}',
@@ -1269,6 +1273,8 @@ en: {
   their_contact_share: '📎 I shared my contact info too:\n',
   toast_they_shared: '🎉 {name} shared their contact info too!',
   toast_match_before_msg: "Can't exchange contact info before matching",
+  toast_prematch_limit: 'You can send up to 3 messages before matching. Like each other to continue chatting!',
+  prematch_ph: '{n} messages left before matching',
   toast_msg_limit: 'You can send up to {n} messages before matching — like them to get a reply!',
   toast_boost_active: 'Boost is already active!',
   boost_active_label: '⚡ Boost active · {t}',
@@ -1375,6 +1381,8 @@ th: {
   their_contact_share: '📎 ฉันก็แชร์ข้อมูลติดต่อของฉันด้วย:\n',
   toast_they_shared: '🎉 {name} ก็แชร์ข้อมูลติดต่อแล้ว!',
   toast_match_before_msg: 'ยังไม่สามารถแลกข้อมูลติดต่อก่อนจับคู่ได้',
+  toast_prematch_limit: 'ส่งได้สูงสุด 3 ข้อความก่อนจับคู่ กดถูกใจเพื่อแชทต่อ!',
+  prematch_ph: 'เหลืออีก {n} ข้อความก่อนจับคู่',
   toast_msg_limit: 'ส่งข้อความได้สูงสุด {n} ข้อความก่อนจับคู่ กดถูกใจเพื่อรอการตอบกลับนะ!',
   toast_boost_active: 'Boost กำลังทำงานอยู่แล้ว!',
   boost_active_label: '⚡ Boost กำลังทำงาน · {t}',
@@ -1481,6 +1489,8 @@ ja: {
   their_contact_share: '📎 私も連絡先を共有します：\n',
   toast_they_shared: '🎉 {name}さんも連絡先を共有しました！',
   toast_match_before_msg: 'マッチする前は連絡先を交換できません',
+  toast_prematch_limit: 'マッチ前は3件までメッセージを送れます。いいねし合ってチャットを続けましょう！',
+  prematch_ph: 'マッチ前あと{n}件送れます',
   toast_msg_limit: 'マッチ前は最大{n}件までメッセージを送れます。いいねして返信を待ちましょう！',
   toast_boost_active: 'Boostはすでに進行中です！',
   boost_active_label: '⚡ Boost実行中 · {t}',
@@ -1587,6 +1597,8 @@ ko: {
   their_contact_share: '📎 저도 연락처를 공유할게요:\n',
   toast_they_shared: '🎉 {name}님도 연락처를 공유했습니다!',
   toast_match_before_msg: '매칭 전에는 연락처를 교환할 수 없습니다',
+  toast_prematch_limit: '매칭 전 최대 3개 메시지를 보낼 수 있어요. 서로 좋아요를 눌러 계속 채팅하세요!',
+  prematch_ph: '매칭 전 {n}개 메시지 남음',
   toast_msg_limit: '매칭 전에는 최대 {n}개의 메시지만 보낼 수 있어요. 좋아요를 누르고 답장을 기다려보세요!',
   toast_boost_active: '부스트가 이미 진행 중입니다!',
   boost_active_label: '⚡ 부스트 진행 중 · {t}',
@@ -1693,6 +1705,8 @@ vi: {
   their_contact_share: '📎 Tôi cũng chia sẻ thông tin liên hệ của mình:\n',
   toast_they_shared: '🎉 {name} cũng đã chia sẻ thông tin liên hệ!',
   toast_match_before_msg: 'Chưa thể trao đổi liên hệ trước khi ghép đôi',
+  toast_prematch_limit: 'Bạn có thể gửi tối đa 3 tin nhắn trước khi ghép đôi. Thích nhau để tiếp tục trò chuyện!',
+  prematch_ph: 'Còn {n} tin nhắn trước khi ghép đôi',
   toast_msg_limit: 'Tối đa {n} tin nhắn trước khi ghép đôi, hãy thích để chờ phản hồi nhé!',
   toast_boost_active: 'Boost đang hoạt động rồi!',
   boost_active_label: '⚡ Boost đang chạy · {t}',
@@ -1799,6 +1813,8 @@ id: {
   their_contact_share: '📎 Saya juga membagikan info kontak saya:\n',
   toast_they_shared: '🎉 {name} juga membagikan info kontak!',
   toast_match_before_msg: 'Belum bisa bertukar kontak sebelum cocok',
+  toast_prematch_limit: 'Bisa kirim maksimal 3 pesan sebelum cocok. Saling suka untuk lanjut chat!',
+  prematch_ph: '{n} pesan tersisa sebelum cocok',
   toast_msg_limit: 'Maksimal {n} pesan sebelum cocok, tekan suka untuk menunggu balasan!',
   toast_boost_active: 'Boost sudah aktif!',
   boost_active_label: '⚡ Boost aktif · {t}',
@@ -1905,6 +1921,8 @@ fr: {
   their_contact_share: '📎 Je partage aussi mes coordonnées :\n',
   toast_they_shared: '🎉 {name} a aussi partagé ses coordonnées !',
   toast_match_before_msg: "Impossible d'échanger des coordonnées avant un match",
+  toast_prematch_limit: "Vous pouvez envoyer 3 messages avant le match. Aimez-vous mutuellement pour continuer !",
+  prematch_ph: '{n} messages restants avant le match',
   toast_msg_limit: "Vous pouvez envoyer jusqu'à {n} messages avant un match — aimez pour obtenir une réponse !",
   toast_boost_active: 'Le boost est déjà actif !',
   boost_active_label: '⚡ Boost actif · {t}',
@@ -2011,6 +2029,8 @@ es: {
   their_contact_share: '📎 También comparto mi información de contacto:\n',
   toast_they_shared: '🎉 ¡{name} también compartió su información de contacto!',
   toast_match_before_msg: 'No se puede intercambiar contacto antes de hacer match',
+  toast_prematch_limit: 'Puedes enviar hasta 3 mensajes antes del match. ¡Dense like mutuamente para seguir!',
+  prematch_ph: '{n} mensajes restantes antes del match',
   toast_msg_limit: 'Puedes enviar hasta {n} mensajes antes de hacer match — ¡dale like para obtener respuesta!',
   toast_boost_active: '¡El boost ya está activo!',
   boost_active_label: '⚡ Boost activo · {t}',
@@ -2117,6 +2137,8 @@ de: {
   their_contact_share: '📎 Ich teile auch meine Kontaktinfos:\n',
   toast_they_shared: '🎉 {name} hat auch ihre/seine Kontaktinfos geteilt!',
   toast_match_before_msg: 'Kontaktinfos können vor einem Match nicht ausgetauscht werden',
+  toast_prematch_limit: 'Vor dem Match kannst du bis zu 3 Nachrichten senden. Liked euch gegenseitig!',
+  prematch_ph: '{n} Nachrichten vor dem Match übrig',
   toast_msg_limit: 'Du kannst bis zu {n} Nachrichten vor dem Match senden — like, um eine Antwort zu bekommen!',
   toast_boost_active: 'Boost ist bereits aktiv!',
   boost_active_label: '⚡ Boost aktiv · {t}',
@@ -2223,6 +2245,8 @@ pt: {
   their_contact_share: '📎 Também compartilho minhas informações de contato:\n',
   toast_they_shared: '🎉 {name} também compartilhou as informações de contato!',
   toast_match_before_msg: 'Não é possível trocar contatos antes de dar match',
+  toast_prematch_limit: 'Você pode enviar até 3 mensagens antes do match. Curtam-se para continuar!',
+  prematch_ph: '{n} mensagens restantes antes do match',
   toast_msg_limit: 'Você pode enviar até {n} mensagens antes de dar match — curta para conseguir uma resposta!',
   toast_boost_active: 'O boost já está ativo!',
   boost_active_label: '⚡ Boost ativo · {t}',
@@ -2329,6 +2353,8 @@ ru: {
   their_contact_share: '📎 Я тоже делюсь своими контактами:\n',
   toast_they_shared: '🎉 {name} тоже поделился(ась) контактами!',
   toast_match_before_msg: 'Нельзя обмениваться контактами до мэтча',
+  toast_prematch_limit: 'До мэтча можно отправить до 3 сообщений. Поставьте лайки друг другу!',
+  prematch_ph: 'Осталось {n} сообщений до мэтча',
   toast_msg_limit: 'До мэтча можно отправить до {n} сообщений — поставьте лайк, чтобы получить ответ!',
   toast_boost_active: 'Буст уже активен!',
   boost_active_label: '⚡ Буст активен · {t}',
@@ -2435,6 +2461,8 @@ ar: {
   their_contact_share: '📎 أشارك أيضاً معلومات الاتصال الخاصة بي:\n',
   toast_they_shared: '🎉 {name} شارك(ت) أيضاً معلومات الاتصال!',
   toast_match_before_msg: 'لا يمكن تبادل معلومات الاتصال قبل التطابق',
+  toast_prematch_limit: 'يمكنك إرسال 3 رسائل قبل التطابق. أعجبوا ببعضكم لمتابعة المحادثة!',
+  prematch_ph: '{n} رسائل متبقية قبل التطابق',
   toast_msg_limit: 'يمكنك إرسال حتى {n} رسائل قبل التطابق — اضغط إعجاب للحصول على رد!',
   toast_boost_active: 'التعزيز نشط بالفعل!',
   boost_active_label: '⚡ التعزيز نشط · {t}',
@@ -2541,6 +2569,8 @@ hi: {
   their_contact_share: '📎 मैं भी अपनी संपर्क जानकारी साझा करता/करती हूं:\n',
   toast_they_shared: '🎉 {name} ने भी अपनी संपर्क जानकारी साझा की!',
   toast_match_before_msg: 'मैच होने से पहले संपर्क जानकारी का आदान-प्रदान नहीं कर सकते',
+  toast_prematch_limit: 'मैच से पहले 3 संदेश भेज सकते हैं। एक-दूसरे को लाइक करें चैट जारी रखने के लिए!',
+  prematch_ph: 'मैच से पहले {n} संदेश शेष',
   toast_msg_limit: 'मैच होने से पहले आप {n} संदेश तक भेज सकते हैं — जवाब पाने के लिए पसंद करें!',
   toast_boost_active: 'बूस्ट पहले से ही सक्रिय है!',
   boost_active_label: '⚡ बूस्ट सक्रिय · {t}',
@@ -2647,6 +2677,8 @@ ms: {
   their_contact_share: '📎 Saya juga berkongsi maklumat hubungan saya:\n',
   toast_they_shared: '🎉 {name} turut berkongsi maklumat hubungan!',
   toast_match_before_msg: 'Tidak boleh bertukar hubungan sebelum padanan',
+  toast_prematch_limit: 'Boleh hantar sehingga 3 mesej sebelum padanan. Saling suka untuk terus berbual!',
+  prematch_ph: '{n} mesej lagi sebelum padanan',
   toast_msg_limit: 'Anda boleh hantar sehingga {n} mesej sebelum padanan — tekan suka untuk mendapat balasan!',
   toast_boost_active: 'Boost sudah aktif!',
   boost_active_label: '⚡ Boost aktif · {t}',
@@ -2753,6 +2785,8 @@ my: {
   their_contact_share: '📎 ကျွန်တော်/ကျွန်မလည်း ဆက်သွယ်ရန်အချက်အလက် မျှဝေပါသည်:\n',
   toast_they_shared: '🎉 {name} ကလည်း ဆက်သွယ်ရန်အချက်အလက် မျှဝေခဲ့ပါသည်!',
   toast_match_before_msg: 'တွဲဖက်မှုမတိုင်မီ ဆက်သွယ်ရန်အချက်အလက် ဖလှယ်၍မရပါ',
+  toast_prematch_limit: 'တွဲဖက်မှုမတိုင်မီ မက်ဆေ့ ၃ ခုအထိ ပို့နိုင်ပါသည်',
+  prematch_ph: 'တွဲဖက်မှုမတိုင်မီ မက်ဆေ့ {n} ခုကျန်ပါသေးသည်',
   toast_msg_limit: 'တွဲဖက်မှုမတိုင်မီ {n} စောင်အထိ ပို့နိုင်သည် — ပြန်ဖြေချက်ရရန် နှစ်သက်ခြင်း နှိပ်ပါ!',
   toast_boost_active: 'Boost လုပ်ဆောင်နေပါပြီ!',
   boost_active_label: '⚡ Boost လုပ်ဆောင်နေသည် · {t}',
@@ -2859,6 +2893,8 @@ km: {
   their_contact_share: '📎 ខ្ញុំក៏ចែករំលែកព័ត៌មានទំនាក់ទំនងរបស់ខ្ញុំដែរ:\n',
   toast_they_shared: '🎉 {name} ក៏បានចែករំលែកព័ត៌មានទំនាក់ទំនងដែរ!',
   toast_match_before_msg: 'មិនអាចផ្លាស់ប្តូរទំនាក់ទំនងមុនផ្គូផ្គងបានទេ',
+  toast_prematch_limit: 'អាចផ្ញើសារ ៣ មុនផ្គូផ្គង។ ចូលចិត្តគ្នាដើម្បីបន្តជជែក!',
+  prematch_ph: 'សារ {n} នៅសល់មុនផ្គូផ្គង',
   toast_msg_limit: 'អ្នកអាចផ្ញើសារបានរហូតដល់ {n} មុនផ្គូផ្គង — ចុចចូលចិត្តដើម្បីទទួលការឆ្លើយតប!',
   toast_boost_active: 'Boost កំពុងដំណើរការរួចហើយ!',
   boost_active_label: '⚡ Boost កំពុងដំណើរការ · {t}',
@@ -2965,6 +3001,8 @@ lo: {
   their_contact_share: '📎 ຂ້ອຍກໍແບ່ງປັນຂໍ້ມູນຕິດຕໍ່ຂອງຂ້ອຍນຳ:\n',
   toast_they_shared: '🎉 {name} ກໍແບ່ງປັນຂໍ້ມູນຕິດຕໍ່ແລ້ວ!',
   toast_match_before_msg: 'ຍັງບໍ່ສາມາດແລກປ່ຽນຂໍ້ມູນຕິດຕໍ່ກ່ອນຈັບຄູ່',
+  toast_prematch_limit: 'ສົ່ງໄດ້ສູງສຸດ 3 ຂໍ້ຄວາມກ່ອນຈັບຄູ່',
+  prematch_ph: 'ຍັງເຫຼືອ {n} ຂໍ້ຄວາມກ່ອນຈັບຄູ່',
   toast_msg_limit: 'ສົ່ງຂໍ້ຄວາມໄດ້ສູງສຸດ {n} ຂໍ້ຄວາມກ່ອນຈັບຄູ່ — ກົດຖືກໃຈເພື່ອລໍຖ້າການຕອບກັບ!',
   toast_boost_active: 'Boost ກຳລັງເຮັດວຽກຢູ່ແລ້ວ!',
   boost_active_label: '⚡ Boost ກຳລັງເຮັດວຽກ · {t}',
@@ -3071,6 +3109,8 @@ tl: {
   their_contact_share: '📎 Ibabahagi ko rin ang aking contact info:\n',
   toast_they_shared: '🎉 Ibinahagi rin ni {name} ang kanilang contact info!',
   toast_match_before_msg: 'Hindi maaaring mag-exchange ng contact info bago mag-match',
+  toast_prematch_limit: 'Maaari kang magpadala ng hanggang 3 mensahe bago mag-match. Mag-like kayo para makapag-chat pa!',
+  prematch_ph: '{n} mensahe na lang bago mag-match',
   toast_msg_limit: 'Maaari kang magpadala ng hanggang {n} mensahe bago mag-match — mag-like para makakuha ng reply!',
   toast_boost_active: 'Aktibo na ang boost!',
   boost_active_label: '⚡ Aktibo ang Boost · {t}',
@@ -3968,8 +4008,31 @@ function getMyMsgCount(id) {
 }
 
 async function sendChatMessage(id, text, isContact) {
-  const matchId = matchIdByUser[id];
-  if (!matchId) { showToast(t('toast_match_before_msg')); return; }
+  let matchId = matchIdByUser[id];
+  // Auto-create match if none exists (for pre-match messaging)
+  if (!matchId) {
+    try {
+      const pair = [currentUserId, id].sort();
+      const { data: mData, error: mErr } = await sb.from('matches').upsert(
+        { user_a: pair[0], user_b: pair[1] }, { onConflict: 'user_a,user_b' }
+      ).select().single();
+      if (mErr) throw mErr;
+      matchId = mData.id;
+      matchIdByUser[id] = matchId;
+    } catch (err) {
+      console.error('Auto-create match failed', err);
+      showToast(t('auth_error'));
+      return;
+    }
+  }
+  // Limit pre-match messages to 3
+  if (!matchedIds.has(id)) {
+    const myMsgCount = (chatMessages[id] || []).filter(m => m.from === 'me').length;
+    if (myMsgCount >= 3) {
+      showToast(t('toast_prematch_limit'));
+      return;
+    }
+  }
   if (!chatMessages[id]) chatMessages[id] = [];
   const optimistic = { from: 'me', text, time: new Date(), isContact: !!isContact };
   chatMessages[id].push(optimistic);
@@ -3984,6 +4047,8 @@ async function sendChatMessage(id, text, isContact) {
     console.error('sendChatMessage failed', err);
     showToast(t('auth_error'));
   }
+  // Update input state after sending (may hit limit)
+  updateChatInputState(id);
 }
 
 function sendMsg() {
@@ -3991,10 +4056,6 @@ function sendMsg() {
   const text = input.value.trim();
   if (!text || !currentChatUser) return;
   const id = currentChatUser.id;
-  if (!matchedIds.has(id)) {
-    showToast(t('toast_match_before_msg'));
-    return;
-  }
   input.value = '';
   sendChatMessage(id, text, false);
 }
@@ -4003,8 +4064,14 @@ function updateChatInputState(id) {
   const isMatched = matchedIds.has(id);
   const input = document.getElementById('chatInput');
   if (!isMatched) {
-    input.placeholder = t('share_contact_prompt');
-    input.disabled = true;
+    const myMsgCount = (chatMessages[id] || []).filter(m => m.from === 'me').length;
+    if (myMsgCount >= 3) {
+      input.placeholder = t('toast_prematch_limit');
+      input.disabled = true;
+    } else {
+      input.placeholder = t('prematch_ph').replace('{n}', 3 - myMsgCount);
+      input.disabled = false;
+    }
   } else {
     input.placeholder = t('chat_ph');
     input.disabled = false;
