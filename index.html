@@ -273,6 +273,14 @@ input, select, textarea { font-family: inherit; color: var(--text); }
   border: 1px solid var(--border); margin-top: 8px; transition: background 0.15s;
 }
 .btn-secondary:hover { background: var(--bg-card-hover); }
+.auth-divider { display:flex; align-items:center; gap:12px; margin:16px 0 8px; color:var(--text-secondary); font-size:13px; }
+.auth-divider::before, .auth-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+.btn-google {
+  width:100%; padding:12px; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:10px;
+  background:#fff; color:#444; font-size:15px; font-weight:600; border:1px solid #dadce0; cursor:pointer;
+  transition:background 0.15s, box-shadow 0.15s;
+}
+.btn-google:hover { background:#f7f8f8; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
 .feedback-link {
   display: block; width: 100%; padding: 13px; border-radius: 12px; text-align: center;
   background: var(--bg-card); color: var(--text-secondary); font-size: 14px;
@@ -595,6 +603,11 @@ input, select, textarea { font-family: inherit; color: var(--text); }
     <p id="authError" style="display:none;color:var(--coral);font-size:13px;margin-bottom:8px"></p>
     <button class="btn-primary" id="authSubmitBtn" onclick="submitAuth()" data-i18n="login_btn"></button>
     <button class="btn-secondary" id="authSwitchBtn" onclick="toggleAuthMode()" data-i18n="switch_to_signup"></button>
+    <div class="auth-divider"><span data-i18n="or_divider">or</span></div>
+    <button class="btn-google" onclick="signInWithGoogle()">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 010-9.18l-7.98-6.19a24.001 24.001 0 000 21.56l7.98-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      <span data-i18n="google_btn">Sign in with Google</span>
+    </button>
   </div>
 
   <!-- Onboarding -->
@@ -976,6 +989,7 @@ zh: {
   login_btn: '登入',
   signup_btn: '註冊',
   switch_to_signup: '還沒有帳號？註冊',
+  or_divider: '或', google_btn: '使用 Google 登入',
   switch_to_login: '已經有帳號？登入',
   auth_error: '發生錯誤，請再試一次',
   logout_btn: '登出',
@@ -1084,6 +1098,7 @@ zh_CN: {
   login_btn: '登录',
   signup_btn: '注册',
   switch_to_signup: '还没有账号？注册',
+  or_divider: '或', google_btn: '使用 Google 登录',
   switch_to_login: '已经有账号？登录',
   auth_error: '发生错误，请再试一次',
   logout_btn: '登出',
@@ -1192,6 +1207,7 @@ en: {
   login_btn: 'Log In',
   signup_btn: 'Sign Up',
   switch_to_signup: 'Don\'t have an account? Sign up',
+  or_divider: 'or', google_btn: 'Sign in with Google',
   switch_to_login: 'Already have an account? Log in',
   auth_error: 'Something went wrong, please try again',
   logout_btn: 'Log Out',
@@ -1300,6 +1316,7 @@ th: {
   login_btn: 'เข้าสู่ระบบ',
   signup_btn: 'สมัครสมาชิก',
   switch_to_signup: 'ยังไม่มีบัญชี? สมัครสมาชิก',
+  or_divider: 'หรือ', google_btn: 'เข้าสู่ระบบด้วย Google',
   switch_to_login: 'มีบัญชีแล้ว? เข้าสู่ระบบ',
   auth_error: 'เกิดข้อผิดพลาด กรุณาลองอีกครั้ง',
   logout_btn: 'ออกจากระบบ',
@@ -1408,6 +1425,7 @@ ja: {
   login_btn: 'ログイン',
   signup_btn: '登録',
   switch_to_signup: 'アカウントをお持ちでないですか？登録',
+  or_divider: 'または', google_btn: 'Googleでログイン',
   switch_to_login: 'すでにアカウントをお持ちですか？ログイン',
   auth_error: 'エラーが発生しました。もう一度お試しください',
   logout_btn: 'ログアウト',
@@ -1516,6 +1534,7 @@ ko: {
   login_btn: '로그인',
   signup_btn: '가입하기',
   switch_to_signup: '계정이 없으신가요? 가입하기',
+  or_divider: '또는', google_btn: 'Google로 로그인',
   switch_to_login: '이미 계정이 있으신가요? 로그인',
   auth_error: '오류가 발생했습니다. 다시 시도해주세요',
   logout_btn: '로그아웃',
@@ -1624,6 +1643,7 @@ vi: {
   login_btn: 'Đăng nhập',
   signup_btn: 'Đăng ký',
   switch_to_signup: 'Chưa có tài khoản? Đăng ký',
+  or_divider: 'hoặc', google_btn: 'Đăng nhập bằng Google',
   switch_to_login: 'Đã có tài khoản? Đăng nhập',
   auth_error: 'Đã xảy ra lỗi, vui lòng thử lại',
   logout_btn: 'Đăng xuất',
@@ -1732,6 +1752,7 @@ id: {
   login_btn: 'Masuk',
   signup_btn: 'Daftar',
   switch_to_signup: 'Belum punya akun? Daftar',
+  or_divider: 'atau', google_btn: 'Masuk dengan Google',
   switch_to_login: 'Sudah punya akun? Masuk',
   auth_error: 'Terjadi kesalahan, silakan coba lagi',
   logout_btn: 'Keluar',
@@ -1840,6 +1861,7 @@ fr: {
   login_btn: 'Connexion',
   signup_btn: 'S\'inscrire',
   switch_to_signup: 'Pas de compte ? S\'inscrire',
+  or_divider: 'ou', google_btn: 'Se connecter avec Google',
   switch_to_login: 'Déjà un compte ? Connexion',
   auth_error: 'Une erreur s\'est produite, veuillez réessayer',
   logout_btn: 'Déconnexion',
@@ -1948,6 +1970,7 @@ es: {
   login_btn: 'Iniciar sesión',
   signup_btn: 'Registrarse',
   switch_to_signup: '¿No tienes cuenta? Regístrate',
+  or_divider: 'o', google_btn: 'Iniciar sesión con Google',
   switch_to_login: '¿Ya tienes cuenta? Inicia sesión',
   auth_error: 'Algo salió mal, inténtalo de nuevo',
   logout_btn: 'Cerrar sesión',
@@ -2056,6 +2079,7 @@ de: {
   login_btn: 'Anmelden',
   signup_btn: 'Registrieren',
   switch_to_signup: 'Noch kein Konto? Registrieren',
+  or_divider: 'oder', google_btn: 'Mit Google anmelden',
   switch_to_login: 'Bereits ein Konto? Anmelden',
   auth_error: 'Etwas ist schiefgelaufen, bitte versuche es erneut',
   logout_btn: 'Abmelden',
@@ -2164,6 +2188,7 @@ pt: {
   login_btn: 'Entrar',
   signup_btn: 'Cadastrar',
   switch_to_signup: 'Não tem conta? Cadastre-se',
+  or_divider: 'ou', google_btn: 'Entrar com Google',
   switch_to_login: 'Já tem conta? Entrar',
   auth_error: 'Algo deu errado, tente novamente',
   logout_btn: 'Sair',
@@ -2272,6 +2297,7 @@ ru: {
   login_btn: 'Войти',
   signup_btn: 'Зарегистрироваться',
   switch_to_signup: 'Нет аккаунта? Зарегистрироваться',
+  or_divider: 'или', google_btn: 'Войти через Google',
   switch_to_login: 'Уже есть аккаунт? Войти',
   auth_error: 'Произошла ошибка, попробуйте снова',
   logout_btn: 'Выйти',
@@ -2380,6 +2406,7 @@ ar: {
   login_btn: 'تسجيل الدخول',
   signup_btn: 'إنشاء حساب',
   switch_to_signup: 'ليس لديك حساب؟ أنشئ حسابًا',
+  or_divider: 'أو', google_btn: 'تسجيل الدخول عبر Google',
   switch_to_login: 'لديك حساب بالفعل؟ سجّل الدخول',
   auth_error: 'حدث خطأ ما، يرجى المحاولة مرة أخرى',
   logout_btn: 'تسجيل الخروج',
@@ -2488,6 +2515,7 @@ hi: {
   login_btn: 'लॉग इन करें',
   signup_btn: 'साइन अप करें',
   switch_to_signup: 'खाता नहीं है? साइन अप करें',
+  or_divider: 'या', google_btn: 'Google से साइन इन करें',
   switch_to_login: 'पहले से खाता है? लॉग इन करें',
   auth_error: 'कुछ गलत हो गया, कृपया फिर से प्रयास करें',
   logout_btn: 'लॉग आउट',
@@ -2596,6 +2624,7 @@ ms: {
   login_btn: 'Log Masuk',
   signup_btn: 'Daftar',
   switch_to_signup: 'Belum ada akaun? Daftar',
+  or_divider: 'atau', google_btn: 'Log masuk dengan Google',
   switch_to_login: 'Sudah ada akaun? Log masuk',
   auth_error: 'Sesuatu tidak kena, sila cuba lagi',
   logout_btn: 'Log Keluar',
@@ -2704,6 +2733,7 @@ my: {
   login_btn: 'အကောင့်ဝင်ရန်',
   signup_btn: 'စာရင်းသွင်းရန်',
   switch_to_signup: 'အကောင့်မရှိသေးဘူးလား? စာရင်းသွင်းရန်',
+  or_divider: 'သို့မဟုတ်', google_btn: 'Google ဖြင့် ဝင်ရောက်ရန်',
   switch_to_login: 'အကောင့်ရှိပြီးသားလား? အကောင့်ဝင်ရန်',
   auth_error: 'တစ်စုံတစ်ခု မှားယွင်းနေသည်၊ ထပ်ကြိုးစားပါ',
   logout_btn: 'အကောင့်ထွက်ရန်',
@@ -2812,6 +2842,7 @@ km: {
   login_btn: 'ចូលគណនី',
   signup_btn: 'ចុះឈ្មោះ',
   switch_to_signup: 'មិនទាន់មានគណនី? ចុះឈ្មោះ',
+  or_divider: 'ឬ', google_btn: 'ចូលដោយប្រើ Google',
   switch_to_login: 'មានគណនីរួចហើយ? ចូលគណនី',
   auth_error: 'មានបញ្ហាកើតឡើង សូមព្យាយាមម្តងទៀត',
   logout_btn: 'ចេញពីគណនី',
@@ -2920,6 +2951,7 @@ lo: {
   login_btn: 'ເຂົ້າສູ່ລະບົບ',
   signup_btn: 'ສະໝັກສະມາຊິກ',
   switch_to_signup: 'ຍັງບໍ່ມີບັນຊີ? ສະໝັກສະມາຊິກ',
+  or_divider: 'ຫຼື', google_btn: 'ເຂົ້າສູ່ລະບົບດ້ວຍ Google',
   switch_to_login: 'ມີບັນຊີແລ້ວ? ເຂົ້າສູ່ລະບົບ',
   auth_error: 'ມີບາງຢ່າງຜິດພາດ, ກະລຸນາລອງໃໝ່',
   logout_btn: 'ອອກຈາກລະບົບ',
@@ -3028,6 +3060,7 @@ tl: {
   login_btn: 'Mag-log In',
   signup_btn: 'Mag-sign Up',
   switch_to_signup: 'Walang account? Mag-sign up',
+  or_divider: 'o', google_btn: 'Mag-sign in gamit ang Google',
   switch_to_login: 'May account na? Mag-log in',
   auth_error: 'May nangyaring mali, subukan muli',
   logout_btn: 'Mag-log Out',
@@ -4205,6 +4238,19 @@ function toggleAuthMode() {
   applyI18n();
 }
 
+async function signInWithGoogle() {
+  try {
+    const { error } = await sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin + window.location.pathname }
+    });
+    if (error) throw error;
+  } catch (err) {
+    console.error(err);
+    setAuthError(err.message || t('auth_error'));
+  }
+}
+
 async function submitAuth() {
   const email = document.getElementById('auth-email').value.trim();
   const password = document.getElementById('auth-password').value;
@@ -4316,9 +4362,13 @@ applyI18n();
 renderLangPickers();
 
 // Session persistence: auto-login returning users
-sb.auth.onAuthStateChange((event, session) => {
+sb.auth.onAuthStateChange(async (event, session) => {
   if (event === 'SIGNED_OUT') return;
   if (session && !currentUserId) {
+    // For OAuth users, ensure a profile row exists
+    if (event === 'SIGNED_IN') {
+      await sb.from('profiles').upsert({ id: session.user.id, name: '' }, { onConflict: 'id', ignoreDuplicates: true });
+    }
     handleAuthenticated(session);
   }
 });
