@@ -3798,36 +3798,51 @@ async function saveProfile() {
   renderCards();
 }
 
-function handlePhotoUpload(e) {
+async function handlePhotoUpload(e) {
   const file = e.target.files[0]; if (!file) return;
+  // Show local preview immediately
   const reader = new FileReader();
   reader.onload = function(ev) {
-    myPhoto = ev.target.result;
     const preview = document.getElementById('photoPreview');
-    preview.src = myPhoto; preview.style.display = 'block';
+    preview.src = ev.target.result; preview.style.display = 'block';
     document.getElementById('photoPlaceholder').style.display = 'none';
   };
   reader.readAsDataURL(file);
+  // Upload to Supabase Storage (will be saved to profile in finishOnboarding)
+  if (currentUserId) {
+    try {
+      const ext = file.name.split('.').pop() || 'jpg';
+      const path = `${currentUserId}/avatar.${ext}`;
+      const { error: upErr } = await sb.storage.from('avatars').upload(path, file, { upsert: true, contentType: file.type });
+      if (upErr) throw upErr;
+      const { data: urlData } = sb.storage.from('avatars').getPublicUrl(path);
+      myPhoto = urlData.publicUrl + '?t=' + Date.now();
+    } catch (err) {
+      console.error('Photo upload error:', err);
+      // Fall back to base64 if storage upload fails
+      myPhoto = document.getElementById('photoPreview').src;
+    }
+  }
 }
 async function handleProfilePhotoChange(e) {
   const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = async function(ev) {
-    myPhoto = ev.target.result;
+  if (!currentUserId) return;
+  try {
+    const ext = file.name.split('.').pop() || 'jpg';
+    const path = `${currentUserId}/avatar.${ext}`;
+    const { error: upErr } = await sb.storage.from('avatars').upload(path, file, { upsert: true, contentType: file.type });
+    if (upErr) throw upErr;
+    const { data: urlData } = sb.storage.from('avatars').getPublicUrl(path);
+    myPhoto = urlData.publicUrl + '?t=' + Date.now();
     if (myProfile) myProfile.photo = myPhoto;
     updateProfilePage();
-    if (currentUserId) {
-      try {
-        const { error } = await sb.from('profiles').update({ avatar_url: myPhoto }).eq('id', currentUserId);
-        if (error) throw error;
-        showToast(t('toast_photo_updated'));
-      } catch (err) {
-        console.error(err);
-        showToast(t('auth_error'));
-      }
-    }
-  };
-  reader.readAsDataURL(file);
+    const { error } = await sb.from('profiles').update({ avatar_url: myPhoto }).eq('id', currentUserId);
+    if (error) throw error;
+    showToast(t('toast_photo_updated'));
+  } catch (err) {
+    console.error('Photo upload error:', err);
+    showToast(t('auth_error'));
+  }
 }
 
 function avatarHTML(u, size) {
