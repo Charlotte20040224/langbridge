@@ -3407,8 +3407,9 @@ async function finishOnboarding() {
   const btn = document.querySelector('#step5 .btn-primary');
   if (btn) { btn.disabled = true; btn.textContent = '...'; }
   try {
-    // 1. Update the profiles row (created by trigger on signup)
-    const { error: profErr } = await sb.from('profiles').update({
+    // 1. Upsert the profiles row
+    const { error: profErr } = await sb.from('profiles').upsert({
+      id: currentUserId,
       name: myProfile.name,
       age: myProfile.age,
       gender: myProfile.gender,
@@ -3420,8 +3421,8 @@ async function finishOnboarding() {
       ig_handle: myProfile.ig || null,
       is_online: true,
       last_seen: new Date().toISOString()
-    }).eq('id', currentUserId);
-    if (profErr) throw profErr;
+    }, { onConflict: 'id' });
+    if (profErr) { console.error('Profile upsert error:', profErr); throw profErr; }
 
     // 2. Insert languages (speak + learn)
     await sb.from('user_languages').delete().eq('user_id', currentUserId);
