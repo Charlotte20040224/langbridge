@@ -3979,44 +3979,55 @@ function renderChatMessages(id) {
   el.scrollTop = el.scrollHeight;
 }
 // Simple simulated translation using a dictionary of common phrases
-const SIMULATED_TRANSLATIONS = {
-  zh: { 'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊':'你好！很高興認識你 😊', '你好！很高興認識你 😊':'Hello! Nice to meet you 😊', 'Hey! Nice to match with you 😊':'嘿！很高興配對成功 😊',
-    '哈哈 😄':'哈哈 😄', '好的！':'好的！', 'สนุกดีเลย':'很有趣', 'That sounds great!':'聽起來很棒！', '我也是！':'我也是！',
-    '真的嗎？太酷了':'真的嗎？太酷了', '你什麼時候有空練習？':'你什麼時候有空練習？', 'ได้เลยค่ะ/ครับ':'好的！', 'Nice!':'讚！',
-    '我們可以用語音嗎？':'我們可以用語音嗎？', '你學多久了？':'你學多久了？', '加油！💪':'加油！💪' },
-  zh_CN: { 'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊':'你好！很高兴认识你 😊', '你好！很高興認識你 😊':'你好！很高兴认识你 😊', 'Hey! Nice to match with you 😊':'嘿！很高兴配对成功 😊',
-    '哈哈 😄':'哈哈 😄', '好的！':'好的！', 'สนุกดีเลย':'很有趣', 'That sounds great!':'听起来很棒！', '我也是！':'我也是！',
-    '真的嗎？太酷了':'真的吗？太酷了', 'ได้เลยค่ะ/ครับ':'好的！', 'Nice!':'赞！' },
-  en: { 'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊':'Hello! Nice to meet you 😊', '你好！很高興認識你 😊':'Hello! Nice to meet you 😊', 'Hey! Nice to match with you 😊':'Hey! Nice to match with you 😊',
-    '哈哈 😄':'Haha 😄', '好的！':'OK!', 'สนุกดีเลย':'That\'s fun!', 'That sounds great!':'That sounds great!', '我也是！':'Me too!',
-    '真的嗎？太酷了':'Really? So cool!', '你什麼時候有空練習？':'When are you free to practice?', 'ได้เลยค่ะ/ครับ':'Sure!', 'Nice!':'Nice!',
-    '我們可以用語音嗎？':'Can we use voice chat?', '你學多久了？':'How long have you been learning?', '加油！💪':'Keep it up! 💪' },
-  th: { '你好！很高興認識你 😊':'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊', 'Hey! Nice to match with you 😊':'สวัสดี! ดีใจที่จับคู่กัน 😊',
-    '哈哈 😄':'ฮ่าๆ 😄', '好的！':'ได้เลย!', 'That sounds great!':'ฟังดูดีมาก!', '我也是！':'ฉันก็เหมือนกัน!',
-    '真的嗎？太酷了':'จริงเหรอ? เจ๋งมาก!', '你什麼時候有空練習？':'ว่างเมื่อไหร่มาฝึกกัน?', 'Nice!':'เยี่ยม!',
-    '我們可以用語音嗎？':'ใช้วอยซ์แชทได้ไหม?', '你學多久了？':'เรียนมานานเท่าไหร่แล้ว?', '加油！💪':'สู้ๆ! 💪' },
-  ja: { 'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊':'こんにちは！はじめまして 😊', '你好！很高興認識你 😊':'こんにちは！お会いできて嬉しいです 😊', 'Hey! Nice to match with you 😊':'やあ！マッチできて嬉しい 😊',
-    '哈哈 😄':'はは 😄', '好的！':'いいよ！', 'สนุกดีเลย':'楽しいね', 'That sounds great!':'いいね！', '我也是！':'私も！', 'Nice!':'いいね！' },
-  ko: { 'สวัสดีค่ะ/ครับ! ยินดีที่ได้รู้จัก 😊':'안녕하세요! 만나서 반가워요 😊', '你好！很高興認識你 😊':'안녕하세요! 만나서 반가워요 😊', 'Hey! Nice to match with you 😊':'안녕! 매칭돼서 반가워 😊',
-    '哈哈 😄':'ㅋㅋ 😄', '好的！':'좋아요!', 'That sounds great!':'좋은데요!', '我也是！':'저도요!', 'Nice!':'좋아요!' },
+// Language code mapping for MyMemory translation API
+const LANG_CODE_MAP = {
+  zh: 'zh-TW', zh_CN: 'zh-CN', en: 'en', th: 'th', ja: 'ja', ko: 'ko',
+  vi: 'vi', id: 'id', fr: 'fr', es: 'es', de: 'de', pt: 'pt',
+  ru: 'ru', ar: 'ar', hi: 'hi', ms: 'ms', my: 'my', km: 'km', lo: 'lo', tl: 'tl'
 };
-function translateMsg(chatId, msgIdx, el) {
+const translationCache = {};
+
+async function translateText(text, targetLang) {
+  const target = LANG_CODE_MAP[targetLang] || targetLang;
+  const cacheKey = `${text}|${target}`;
+  if (translationCache[cacheKey]) return translationCache[cacheKey];
+  try {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=autodetect|${target}&de=thaivocabapp@gmail.com`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    if (data.responseStatus === 200 && data.responseData.translatedText) {
+      const translated = data.responseData.translatedText;
+      translationCache[cacheKey] = translated;
+      return translated;
+    }
+    return null;
+  } catch (err) {
+    console.error('Translation error:', err);
+    return null;
+  }
+}
+
+async function translateMsg(chatId, msgIdx, el) {
   const msgs = chatMessages[chatId];
   if (!msgs || !msgs[msgIdx]) return;
   const m = msgs[msgIdx];
-  // Check if translation already shown
   const parent = el.closest('.chat-msg');
   const existing = parent.querySelector('.msg-translation');
   if (existing) { existing.remove(); el.textContent = '🌐 ' + t('translate_btn'); return; }
-  // Look up translation
   const tl = translateLang || currentLang;
-  const dict = SIMULATED_TRANSLATIONS[tl] || SIMULATED_TRANSLATIONS.en;
-  const translated = dict[m.text] || (tl.startsWith('zh') ? m.text : '(' + t('translate_unavailable') + ')');
-  const div = document.createElement('div');
-  div.className = 'msg-translation';
-  div.textContent = translated;
-  el.insertAdjacentElement('beforebegin', div);
-  el.textContent = '🌐 ' + t('translate_hide');
+  el.textContent = '⏳ ...';
+  const translated = await translateText(m.text, tl);
+  if (translated) {
+    const div = document.createElement('div');
+    div.className = 'msg-translation';
+    div.textContent = translated;
+    el.insertAdjacentElement('beforebegin', div);
+    el.textContent = '🌐 ' + t('translate_hide');
+  } else {
+    el.textContent = '🌐 ' + t('translate_unavailable');
+    setTimeout(() => { el.textContent = '🌐 ' + t('translate_btn'); }, 2000);
+  }
 }
 function getMyMsgCount(id) {
   return (chatMessages[id] || []).filter(m => m.from === 'me' && !m.isContact).length;
